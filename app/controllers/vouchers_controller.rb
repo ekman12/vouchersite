@@ -24,7 +24,11 @@ class VouchersController < ApplicationController
   # POST /vouchers
   # POST /vouchers.json
   def create
+    restaurant = Restaurant.find_by(name: params["voucher"][:restaurant])
+    restaurant = create_restaurant(params["voucher"][:restaurant]) if restaurant.nil?
+
     @voucher = Voucher.new(voucher_params)
+    @voucher[:restaurant_id] = restaurant.id
 
     respond_to do |format|
       if @voucher.save
@@ -62,13 +66,20 @@ class VouchersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_voucher
-      @voucher = Voucher.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def voucher_params
-      params.require(:voucher).permit(:name, :price, :notes)
-    end
+  def create_restaurant(params)
+    restaurant = Restaurant.new(name: params)
+    restaurant.save
+    return restaurant
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_voucher
+    @voucher = Voucher.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def voucher_params
+    params.require(:voucher).permit(:name, :price, :notes, :restaurant_id)
+  end
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :vouchers, only: [:index, :new, :create]
+  resources :vouchers, only: [:index, :show, :new, :create]
   # resources :restaurants
   devise_for :users
   root to: 'pages#home'

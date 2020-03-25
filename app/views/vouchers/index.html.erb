@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Restaurant</th>
       <th>Name</th>
       <th>Price</th>
       <th>Notes</th>
@@ -15,9 +16,11 @@
   <tbody>
     <% @vouchers.each do |voucher| %>
       <tr>
+        <td><%= voucher.get_restaurant.name %></td>
         <td><%= voucher.name %></td>
-        <td><%= voucher.price %></td>
+        <td>£<%= voucher.price %></td>
         <td><%= voucher.notes %></td>
+        <td><%= link_to 'Contact owner', voucher %></td>
       </tr>
     <% end %>
   </tbody>

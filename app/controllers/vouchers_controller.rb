@@ -25,6 +25,7 @@ class VouchersController < ApplicationController
   # POST /vouchers
   # POST /vouchers.json
   def create
+    asdjashdkah
     restaurant = Restaurant.find_by(name: params["voucher"][:restaurant])
     restaurant = create_restaurant(params["voucher"][:restaurant]) if restaurant.nil?
 

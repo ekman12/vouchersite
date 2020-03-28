@@ -1,11 +1,8 @@
 class Restaurant < ApplicationRecord
   has_many :vouchers
   geocoded_by :address
-  # after_validation :geocode - DO THIS LATER WHEN HAVE GOOGLE SEARCH FOR MAPS
   after_validation :geocode, if: :will_save_change_to_address?
   after_create :retrieve_additional_info
-  # after_save :save_website
-
 
   def retrieve_additional_info
     geocoder_search = Geocoder.search(self.address).first

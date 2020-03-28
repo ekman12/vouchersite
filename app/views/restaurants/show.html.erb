@@ -1,39 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<h1><%= @restaurant.name %>, E2</h1>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @restaurant.latitude %>
-</p>
+<% @restaurant.vouchers.each do |voucher| %>
+  <%= render 'shared/voucher_card', voucher: voucher %>
+<% end %>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @restaurant.longitude %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <strong>Neighbourhood:</strong>
-  <%= @restaurant.neighbourhood %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @restaurant.website %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

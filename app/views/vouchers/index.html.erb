@@ -2,9 +2,14 @@
 
 <h1>Vouchers</h1>
 
+<% @vouchers.each do |voucher| %>
+  <%= render 'shared/voucher_card', voucher: voucher %>
+<% end %>
+
 <table>
   <thead>
     <tr>
+      <th>Restaurant</th>
       <th>Name</th>
       <th>Price</th>
       <th>Notes</th>
@@ -15,12 +20,11 @@
   <tbody>
     <% @vouchers.each do |voucher| %>
       <tr>
+        <td><%= voucher.get_restaurant.name %></td>
         <td><%= voucher.name %></td>
-        <td><%= voucher.price %></td>
+        <td>£<%= voucher.price %></td>
         <td><%= voucher.notes %></td>
-        <td><%= link_to 'Show', voucher %></td>
-        <td><%= link_to 'Edit', edit_voucher_path(voucher) %></td>
-        <td><%= link_to 'Destroy', voucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Contact owner', voucher %></td>
       </tr>
     <% end %>
   </tbody>

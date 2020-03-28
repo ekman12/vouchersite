@@ -30,6 +30,7 @@ class VouchersController < ApplicationController
 
     @voucher = Voucher.new(voucher_params)
     @voucher[:restaurant_id] = restaurant.id
+    @voucher[:user_id] = current_user.id
 
     respond_to do |format|
       if @voucher.save

@@ -25,7 +25,7 @@ class VouchersController < ApplicationController
   # POST /vouchers
   # POST /vouchers.json
   def create
-    restaurant = Restaurant.find_by(name: params["voucher"][:restaurant])
+    restaurant = Restaurant.find_by(address: params["voucher"][:restaurant])
     restaurant = create_restaurant(params["voucher"][:restaurant]) if restaurant.nil?
 
     @voucher = Voucher.new(voucher_params)
@@ -70,7 +70,13 @@ class VouchersController < ApplicationController
   private
 
   def create_restaurant(params)
-    restaurant = Restaurant.new(name: params)
+    split_params = params.split(",")
+    clean_array = split_params.collect{|x| x.strip || x }
+    name = clean_array[0]
+    address = params
+    city = clean_array[-2]
+    country = clean_array[-1]
+    restaurant = Restaurant.new(name: name, address: address, city: city, country: country)
     restaurant.save
     return restaurant
   end

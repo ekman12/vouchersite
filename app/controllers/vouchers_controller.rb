@@ -25,7 +25,6 @@ class VouchersController < ApplicationController
   # POST /vouchers
   # POST /vouchers.json
   def create
-    # asdjashdkah
     restaurant = Restaurant.find_by(name: params["voucher"][:restaurant])
     restaurant = create_restaurant(params["voucher"][:restaurant]) if restaurant.nil?
 
@@ -71,9 +70,21 @@ class VouchersController < ApplicationController
   private
 
   def create_restaurant(params)
-    restaurant = Restaurant.new(name: params)
+    splitted = params.split(",")
+    clean_array = splitted.collect{|x| x.strip || x }
+    name = clean_array[0]
+    address = params
+    city = clean_array[-2]
+    country = clean_array[-1]
+    restaurant = Restaurant.new(name: name, address: address, city: city, country: country)
     restaurant.save
     return restaurant
+
+
+
+    # restaurant = Restaurant.new(name: params)
+    # restaurant.save
+    # return restaurant
   end
 
   # Use callbacks to share common setup or constraints between actions.

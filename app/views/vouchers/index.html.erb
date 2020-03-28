@@ -2,6 +2,10 @@
 
 <h1>Vouchers</h1>
 
+<% @vouchers.each do |voucher| %>
+  <%= render 'shared/voucher_card', voucher: voucher %>
+<% end %>
+
 <table>
   <thead>
     <tr>

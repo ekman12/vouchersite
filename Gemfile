@@ -30,4 +30,3 @@ group :development, :test do
 end
 
 gem "geocoder"
-# gem 'babel-transpiler'

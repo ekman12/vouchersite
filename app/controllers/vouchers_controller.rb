@@ -70,8 +70,8 @@ class VouchersController < ApplicationController
   private
 
   def create_restaurant(params)
-    splitted = params.split(",")
-    clean_array = splitted.collect{|x| x.strip || x }
+    split_params = params.split(",")
+    clean_array = split_params.collect{|x| x.strip || x }
     name = clean_array[0]
     address = params
     city = clean_array[-2]
@@ -79,12 +79,6 @@ class VouchersController < ApplicationController
     restaurant = Restaurant.new(name: name, address: address, city: city, country: country)
     restaurant.save
     return restaurant
-
-
-
-    # restaurant = Restaurant.new(name: params)
-    # restaurant.save
-    # return restaurant
   end
 
   # Use callbacks to share common setup or constraints between actions.

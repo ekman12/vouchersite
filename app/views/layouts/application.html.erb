@@ -15,6 +15,10 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+    <%= javascript_include_tag "https://www.paypal.com/sdk/js?client-id=#{ENV['PAYPAL_CLIENT_ID']}" %>
     <%= javascript_pack_tag 'application' %>
   </body>
+    <!-- <script
+    src="https://www.paypal.com/sdk/js?client-id=SB_CLIENT_ID"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+  </script> -->
 </html>

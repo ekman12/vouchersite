@@ -24,4 +24,8 @@ class Restaurant < ApplicationRecord
     self.photo_url = google_photo_url
     self.save
   end
+
+  def tidy_address
+    self.address.split(",")[1,5].join(",")
+  end
 end

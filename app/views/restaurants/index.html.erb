@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Restaurants</h1>
+<div class="container">
+  <h1>Restaurants</h1>
 
-<% @restaurants.each do |restaurant| %>
-  <%= render 'shared/restaurant_card', restaurant: restaurant %>
-<% end %>
+  <% @restaurants.each do |restaurant| %>
+    <%= render 'shared/restaurant_card', restaurant: restaurant %>
+  <% end %>
+</div>
 

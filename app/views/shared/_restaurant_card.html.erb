@@ -1,7 +1,16 @@
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2><%= restaurant.name %></h2>
-    <p>This place is in Hackney and has <%=restaurant.vouchers.count%> vouchers. <td><%= link_to 'Browse Vouchers', restaurant %></td></p>
+
+<div class="card-restaurant">
+  <img src=<%= restaurant.photo_url %> />
+  <div class="card-restaurant-infos">
+    <div>
+      <h2><%= restaurant.name %></h2>
+      <p>
+        <%= restaurant.address.split(",")[1,5].join(",") %>
+      </p>
+    </div>
+    <h2>
+      <%= link_to "Browse #{restaurant.vouchers.count} vouchers", restaurant_path(restaurant), class: "card-restaurant-pricing" %>
+    </h2>
   </div>
 </div>
+

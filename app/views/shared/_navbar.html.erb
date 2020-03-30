@@ -30,7 +30,10 @@
         </li> -->
       <% else %>
         <li class="nav-item">
-          <%= link_to "Add your own vouchers", new_user_session_path, class: "nav-link" %>
+         <%= link_to "Browse Restaurants", restaurants_path, class: "dropdown-item" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Own a business?", new_user_session_path, class: "dropdown-item" %>
         </li>
       <% end %>
     </ul>

@@ -1,4 +1,3 @@
-
 <div class="card-restaurant">
   <img src=<%= restaurant.photo_url %> />
   <div class="card-restaurant-infos">
@@ -9,7 +8,7 @@
       </p>
     </div>
     <h2>
-      <%= link_to "Browse #{restaurant.vouchers.count} vouchers", restaurant_path(restaurant), class: "card-restaurant-pricing" %>
+      <%= link_to "Browse #{restaurant.vouchers.count} voucher#{restaurant.plural_vouchers}", restaurant_path(restaurant), class: "card-restaurant-pricing" %>
     </h2>
   </div>
 </div>

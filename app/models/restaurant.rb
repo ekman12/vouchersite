@@ -37,4 +37,8 @@ class Restaurant < ApplicationRecord
   def tidy_address
     address.split(",")[1, 5].join(",")
   end
+
+  def plural_vouchers
+    vouchers.count > 1 ? "s" : ""
+  end
 end

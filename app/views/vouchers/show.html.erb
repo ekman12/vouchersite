@@ -1,28 +1,34 @@
 <%= javascript_include_tag "https://www.paypal.com/sdk/js?client-id=#{ENV['PAYPAL_CLIENT_ID']}&currency=GBP" %>
-<p id="notice"><%= notice %></p>
-<h1>
-<%= @voucher.restaurant.name %> Voucher
-</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @voucher.name %>
-</p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Price:</strong>
-  <%= @voucher.price %>
-</p>
+<div class="row">
+  <div class="col-lg">
+    <div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@voucher.restaurant.photo_url %>);">
+      <div class="container">
+        <h1><%=@voucher.restaurant.name %></h1>
+        <p><%=@voucher.restaurant.tidy_address%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg  price-container">
+    <div class="container">
+      <h3>
+        <strong>£<%= @voucher.price %></strong> - <%= @voucher.notes %>
+      </h3>
+      <div class="paypal-wrapper">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @voucher.notes %>
-</p>
 
-<%= link_to 'Back', vouchers_path %>
 
-<div id="paypal-button-container"></div>
 
+
+
+<%# link_to 'Back', vouchers_path %>
 <script>
   paypal.Buttons({
     createOrder: function(data, actions) {

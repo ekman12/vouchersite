@@ -1,8 +1,14 @@
 <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <img src=<%=voucher.restaurant.google_photos(@restaurant.google_place_id,400).sample%> />
   <div class="card-product-infos">
-    <h2><%= voucher.get_restaurant.name %></h2>
-    <p>£<%= voucher.price %> - <%= voucher.notes %></p>
-    <p><%= link_to 'Contact owner', voucher %></p>
+    <div>
+      <h2>£<%= voucher.price %></h2>
+      <p><%= voucher.notes %></p>
+    </div>
+    <div class="btn-container">
+      <%= link_to "Buy", voucher, type: "button", class: "btn btn-sm btn-outline-secondary" %>
+    </div>
   </div>
 </div>
+
+

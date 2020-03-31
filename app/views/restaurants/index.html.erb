@@ -1,8 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Restaurants</h1>
-
-<% @restaurants.each do |restaurant| %>
-  <%= render 'shared/restaurant_card', restaurant: restaurant %>
-<% end %>
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="container">
+  <h1>Restaurants</h1>
+  <% @restaurants.each_slice(2) do |(r1, r2)| %>
+    <div class="row">
+      <div class="col-xl-6"><%= render 'shared/restaurant_card', restaurant: r1 %></div>
+      <div class="col-xl-6"><%= render 'shared/restaurant_card', restaurant: r2 if r2 %></div>
+    </div>
+  <% end %>
+</div>
 

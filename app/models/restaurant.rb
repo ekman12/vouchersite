@@ -19,7 +19,6 @@ class Restaurant < ApplicationRecord
 
     google_file = URI.open(google_photos(place_id, 1200)[0])
     self.photo.attach(io: google_file, filename: `#restaurant_#{id}.png`, content_type: 'image/png')
-    # self.photo_url = google_photos(place_id, 1200)[0] || ""
     save
   end
 

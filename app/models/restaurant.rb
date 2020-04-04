@@ -2,6 +2,7 @@ require 'json'
 require 'open-uri'
 
 class Restaurant < ApplicationRecord
+  has_one_attached :photo
   has_many :vouchers
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -15,7 +16,9 @@ class Restaurant < ApplicationRecord
     google_data = google_data_scrape(place_id)
     self.google_place_id = place_id
     self.website = google_data["result"]["website"] || ""
-    self.photo_url = google_photos(place_id, 1200)[0] || ""
+
+    google_file = URI.open(google_photos(place_id, 1200)[0])
+    self.photo.attach(io: google_file, filename: `#restaurant_#{id}.png`, content_type: 'image/png')
     save
   end
 

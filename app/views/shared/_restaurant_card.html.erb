@@ -1,5 +1,5 @@
 <div class="card-restaurant">
-  <img src=<%= restaurant.photo_url %> />
+  <%= cl_image_tag(restaurant.photo.key, :width => 525, :height => 200, :crop => :fill) %>
   <div class="card-restaurant-infos">
     <div>
       <h2><%= restaurant.name %></h2>

@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-lg">
-    <div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@voucher.restaurant.photo_url %>);">
+    <div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(@voucher.photo.key, :width => 540, :height => 400, :crop => :fill) %>);">
       <div class="container">
         <h1><%=@voucher.restaurant.name %></h1>
         <p><%=@voucher.restaurant.tidy_address%></p>
@@ -22,11 +22,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 <%# link_to 'Back', vouchers_path %>
 <script>

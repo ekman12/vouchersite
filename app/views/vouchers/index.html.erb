@@ -20,7 +20,6 @@
   <tbody>
     <% @vouchers.each do |voucher| %>
       <tr>
-        <td><%= voucher.get_restaurant.name %></td>
         <td><%= voucher.name %></td>
         <td>£<%= voucher.price %></td>
         <td><%= voucher.notes %></td>

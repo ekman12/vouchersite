@@ -1,6 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@restaurant.photo_url %>);">
+<div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(@restaurant.photo.key, :width => 540, :height => 400, :crop => :fill) %>);">
   <div class="container">
     <h1><%=@restaurant.name %> Vouchers</h1>
     <p><%=@restaurant.tidy_address%></p>

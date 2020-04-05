@@ -5,6 +5,10 @@
   margin-top: 10px;
 }
 
+.card-restaurant:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
 .card-restaurant > img {
   height: 200px;
   width: 100%;

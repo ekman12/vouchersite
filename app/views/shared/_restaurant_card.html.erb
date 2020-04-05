@@ -1,4 +1,4 @@
-<div class="card-restaurant">
+<div data-card="restaurant" data-id="<%=restaurant.id %>" class="clickable-card card-restaurant">
   <%= cl_image_tag(restaurant.photo.key, :width => 525, :height => 200, :crop => :fill) %>
   <div class="card-restaurant-infos">
     <div>
